@@ -11,9 +11,10 @@
 
     public enum CombatClass
     {
-        None,
         Warrior,
-        Wizard,
-        Rogue
+        Mage,
+        Rogue,
+        Archer,
+        Healer
     }
 }
