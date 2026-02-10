@@ -6,9 +6,9 @@
         void LevelUp();
         void CalculateTotals();
     }
- public enum HeroClass
+    public enum HeroClass
     {
-        
+
         Warrior,
         Mage,
         Rogue,
@@ -16,3 +16,4 @@
         Healer
 
     }
+}

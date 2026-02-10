@@ -76,12 +76,7 @@ namespace FinalBattler.Character
             }
 
 
-            Level ++;
-            Health += int addHealth; // Increase health by 10-20
-            Power += int addPower;   // Increase power by 5-10  
-            Luck += int addLuck;     // Increase luck by 1-3
-            Mana += int addMana;     // Increase mana by 5-15
-
+         
 
         }
         public void CalculateTotals()
