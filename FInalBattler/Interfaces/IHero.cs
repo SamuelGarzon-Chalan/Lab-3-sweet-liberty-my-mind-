@@ -6,14 +6,11 @@
         void LevelUp();
         void CalculateTotals();
     }
-    public enum HeroClass
+
+    
+    public interface IAttackBehavior
     {
-
-        Warrior,
-        Mage,
-        Rogue,
-        Archer,
-        Healer
-
+        int Attack(FinalBattler.Character.Hero attacker, FinalBattler.Character.Hero defender);
+        string Name { get; }
     }
 }
