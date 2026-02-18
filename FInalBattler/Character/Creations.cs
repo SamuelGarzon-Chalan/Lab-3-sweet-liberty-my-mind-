@@ -13,6 +13,7 @@
     {
         Warrior,
         Mage,
-        SAYAJIN
+        SAYAJIN,
+        PERUANO
     }
 }

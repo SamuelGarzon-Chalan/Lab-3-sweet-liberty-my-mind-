@@ -1,4 +1,5 @@
 ﻿using FinalBattler.Interfaces;
+using System.Net.Http.Headers;
 
 namespace FinalBattler.Character
 {
@@ -64,7 +65,7 @@ namespace FinalBattler.Character
         public int Attack(Hero defender)
         {
             if (AttackBehavior == null)
-                throw new InvalidOperationException("AttackBehavior  doesnt exit dumb .");
+                Console.WriteLine("AttackBehavior  doesnt exit dumb .");
 
             return AttackBehavior.Attack(this, defender);
         }
