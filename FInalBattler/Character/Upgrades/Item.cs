@@ -2,8 +2,8 @@
 {
     public class Item
     {
-        public string ItemName { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
+        public string ItemName { get; set; } 
+        public string Description { get; set; }
         public int ItemPower { get; set; }
 
         public Item()

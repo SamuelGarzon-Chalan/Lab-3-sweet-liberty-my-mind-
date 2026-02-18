@@ -1,4 +1,7 @@
-﻿namespace FinalBattler.Character.Upgrades
+﻿using System;
+using FinalBattler.Character;
+
+namespace FinalBattler.Character.Upgrades
 {
     public class Spell
     {
@@ -13,13 +16,7 @@
             BaseDamage = baseDamage;
         }
 
-        public int CalculateSpellDamage(int heroPower)
-        {
-            return BaseDamage + (heroPower / 2);
-        }
-
-        public void CastSpell(Hero hero)
-        {
-        }
+       
+        
     }
 }

@@ -13,27 +13,16 @@
 
         public Equipment(string name, EquipmentSlot slot, StatBoostType statBoostType, int boostValue)
         {
-            EquipmentName = name;
-            Slot = slot;
-            StatBoostType = statBoostType;
-            BoostValue = boostValue;
+            
         }
     }
     public enum EquipmentSlot
     {
-        Head,
-        Chest,
-        LeftArm,
-        RightArm,
-        Legs,
-        Boots,
-        Cape
+      
     }
 
     public enum StatBoostType
     {
-        Health,
-        Power,
-        Luck
+     
     }
 }

@@ -13,8 +13,6 @@
     {
         Warrior,
         Mage,
-        Rogue,
-        Archer,
-        Healer
+        SAYAJIN
     }
 }

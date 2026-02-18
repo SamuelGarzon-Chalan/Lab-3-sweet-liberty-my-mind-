@@ -2,42 +2,44 @@
 
 namespace FinalBattler.Character
 {
-    
+
     public abstract class Hero : Creations, IHero
     {
-       
-        private int _health;
-        private int _power;
-        private int _luck;
-        private int _mana;
 
-    
-        public int Health => _health;
-        public int Power => _power;
-        public int Luck => _luck;
-        public int Mana => _mana;
+        private int life;
+        private int energy;
+        private int lucky;
+        private int magicM;
 
-        public bool IsAlive => _health > 0;
+        public CombatClass Class { get; protected set; }
+                                      
+        public int Health => life;
+        public int Power => energy;
+        public int Luck => lucky;
+        public int Mana => magicM;
 
-        
+        public bool IsAlive => life > 0;
+
+
         public IAttackBehavior AttackBehavior { get; protected set; }
 
         protected Hero(string name)
         {
-            Name = string.IsNullOrWhiteSpace(name) ? "Unknown" : name;
+            Name = string.IsNullOrWhiteSpace(name) ? "No one" : name;
             Level = 1;
 
-            _health = 100;
-            _power = 10;
-            _luck = 2;
-            _mana = 10;
+            life = 100;
+            energy = 10;
+            lucky = 2;
+            magicM = 10;
 
             CalculateTotals();
         }
 
         public void DisplayStats(bool showTotalStats = false)
         {
-            Console.WriteLine($"[{Name}] Lv {Level} ({CombatClass})");
+          Console.WriteLine($"[{Name}] Lv {Level} ({Class})");
+
             Console.WriteLine($"HP: {Health} | Pow: {Power} | Luck: {Luck} | Mana: {Mana}");
             Console.WriteLine($"Attack: {AttackBehavior?.Name ?? "None"}");
 
@@ -52,77 +54,71 @@ namespace FinalBattler.Character
         public void TakeDamage(int amount)
         {
             if (amount < 0) amount = 0;
-            _health -= amount;
-            if (_health < 0) _health = 0;
+            life -= amount;
+            if (life < 0) life = 0;
         }
 
-        public void Heal(int amount)
-        {
-            if (amount < 0) amount = 0;
-            _health += amount;
-        }
+   
 
-        public void SpendMana(int amount)
-        {
-            if (amount < 0) return;
-            _mana -= amount;
-            if (_mana < 0) _mana = 0;
-        }
 
-        
         public int Attack(Hero defender)
         {
             if (AttackBehavior == null)
-                throw new InvalidOperationException("AttackBehavior no asignado.");
+                throw new InvalidOperationException("AttackBehavior  doesnt exit dumb .");
 
             return AttackBehavior.Attack(this, defender);
         }
 
-      
+
         public void LevelUp()
         {
-            ApplyLevelUp();   
+            ApplyLevelUp();
             Level++;
             CalculateTotals();
         }
 
         protected abstract void ApplyLevelUp();
 
-        
+
         protected void AddStats(int health, int power, int luck, int mana)
         {
-            _health += Math.Max(0, health);
-            _power += Math.Max(0, power);
-            _luck += Math.Max(0, luck);
-            _mana += Math.Max(0, mana);
+            life += Math.Max(0, health);
+            energy += Math.Max(0, power);
+            lucky += Math.Max(0, luck);
+            magicM += Math.Max(0, mana);
         }
 
         public void CalculateTotals()
         {
-            
-            TotalHealth = _health;
-            TotalPower = _power;
-            TotalLuck = _luck;
-        }
-    }
 
+            TotalHealth = life;
+            TotalPower = energy;
+            TotalLuck = lucky;
+        }
+        public void SpendMana(int amount)
+        {
+            
+        }
+
+    }
+}
   
 
-    public sealed class WarriorAtt
+    //public sealed class WarriorAtt
 
 //namespace FinalBattler.Character
 //{
 //    public class Hero : Creations, IHero
 //    {
-//        private int _health;
-//        private int _power;
-//        private int _luck;
-//        private int _mana;
+//        private int life;
+//        private int energy;
+//        private int lucky;
+//        private int magicM;
 
-//        public int Health => _health;
-//        public int Power => _power;
-//        public int Luck => _luck;
-//        public int Mana => _mana;
+//        public int Health => life;
+//        public int Power => energy;
+//        public int Luck => lucky;
+//        public int Mana => magicM;
 
 //        public int ExperienceRemaining { get; private set; }
 
@@ -130,7 +126,7 @@ namespace FinalBattler.Character
 //        public IAttackBehavior AttackBehavior { get; protected set; }
 //        public ILevelUpStrategy LevelUpStrategy { get; protected set; }
 
-//        public bool IsAlive => _health > 0;
+//        public bool IsAlive => life > 0;
 
 //        public int Health { get; set; }
 //        public int Power { get; set; }

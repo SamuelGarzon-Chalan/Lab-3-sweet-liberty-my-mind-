@@ -12,7 +12,7 @@
             SkillName = name;
             BaseDamage = baseDamage;
             MaxCooldown = cooldown;
-            CurrentCooldown = 0; // Ready to use at the start
+            CurrentCooldown = 0; 
         }
 
         public void UseSkill(Hero hero)
@@ -21,10 +21,6 @@
 
         public void CooldownTick()
         {
-            if (CurrentCooldown > 0)
-            {
-                CurrentCooldown--;
-            }
         }
     }
 }

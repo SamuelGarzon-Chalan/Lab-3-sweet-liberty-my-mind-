@@ -1,21 +1,25 @@
-﻿using FinalBattler.Character;
+﻿using System;
+using System.Collections.Generic;
+using FinalBattler.Character;
+using FinalBattler.Character.Upgrades;
 using FinalBattler.GamePlay;
 
 public class Program
 {
     static void Main()
     {
-        Hero hero1 = new WarriorHero("Guts");
-        Hero hero2 = new MageHero("Vivi");
+        Hero hero1 = new WarriorHero("Patroclo");
+        Hero hero2 = new MageHero("Pacheco");
+        Hero hero3 = new SayajinHero("Pelbox");
 
-        // Polymorphism: base reference holding derived objects
-        var roster = new List<Hero> { hero1, hero2 };
-        foreach (var h in roster) h.DisplayStats();
+        var roster = new List<Hero> { hero1, hero2, hero3 };
+        foreach (var p in roster)
+            p.DisplayStats();
 
         var combat = new Combat();
-        combat.Battle(hero1, hero2);
+        combat.Battle(hero3, hero2);
 
-        Console.WriteLine("Press any key to exit...");
-        Console.ReadKey();
+     
+
     }
 }
